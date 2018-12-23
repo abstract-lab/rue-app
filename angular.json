@@ -133,6 +133,34 @@
           }
         }
       }
+    },
+    "registration": {
+      "root": "libs/registration",
+      "sourceRoot": "libs/registration/src",
+      "projectType": "library",
+      "prefix": "rue-app",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/registration/src/test.ts",
+            "tsConfig": "libs/registration/tsconfig.spec.json",
+            "karmaConfig": "libs/registration/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/registration/tsconfig.lib.json",
+              "libs/registration/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

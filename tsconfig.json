@@ -16,6 +16,9 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@rue-app/registration": [
+        "libs/registration/src/index.ts"
+      ]
     }
   },
   "exclude": [

@@ -15,6 +15,9 @@
     },
     "portal-e2e": {
       "tags": []
+    },
+    "registration": {
+      "tags": []
     }
   }
 }
