@@ -40,6 +40,7 @@ export function registrationReducer(state: RegistrationState = initialState, act
       state = {
         ...state,
         entity: action.payload,
+        error: '',
       };
       break;
     }
