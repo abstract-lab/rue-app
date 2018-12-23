@@ -20,7 +20,7 @@ export interface RegistrationPartialState {
 }
 
 export const initialState: RegistrationState = {
-  entity: null,
+  entity: { loading: false },
   error: ''
 };
 

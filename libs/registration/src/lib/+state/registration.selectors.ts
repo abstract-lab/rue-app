@@ -4,7 +4,6 @@ import {
   RegistrationState
 } from './registration.reducer';
 
-// Lookup the 'Registration' feature state managed by NgRx
 const getRegistrationState = createFeatureSelector<RegistrationState>(
   REGISTRATION_FEATURE_KEY
 );
@@ -21,7 +20,6 @@ const getError = createSelector(
 
 const getRegistrationSuccessfull = createSelector(
   getRegistrationState,
-  getLoading,
   (state: RegistrationState) => state.entity.registrationSucceeded
 );
 

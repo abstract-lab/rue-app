@@ -1,1 +1,12 @@
-<button (click)="register.emit('new@email.com')"></button>
+<form #registrationForm>
+    <input type="email" #registrationEmail>
+    <button (click)="register.emit(registrationEmail.value)"></button>
+
+    <div *ngIf="errorMessage">
+        {{ errorMessage }}
+    </div>
+
+    <div *ngIf="loading">
+        LOADING ...
+    </div>
+</form>

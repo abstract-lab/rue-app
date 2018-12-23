@@ -10,7 +10,8 @@ import {
   RegistrationActionTypes
 } from './registration.actions';
 import { RegistrationService } from '../services/registration.service';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable()
 export class RegistrationEffects {
@@ -19,11 +20,10 @@ export class RegistrationEffects {
         return this.registrationService
                   .signUp(action.payload.email)
                   .pipe(
-                    map(registration => new RegistrationSuccessAction(registration))
+                    map(registration => new RegistrationSuccessAction(registration)),
+                    catchError(err => of(new RegistrationFailAction(err))),
                   )
-      },
-
-      onError: (action: RegisterAction, error) => {
+      }, onError: (action: RegisterAction, error) => {
         return new RegistrationFailAction(error);
       }
     }
