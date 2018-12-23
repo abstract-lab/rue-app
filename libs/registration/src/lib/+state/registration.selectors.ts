@@ -9,38 +9,25 @@ const getRegistrationState = createFeatureSelector<RegistrationState>(
   REGISTRATION_FEATURE_KEY
 );
 
-const getLoaded = createSelector(
+const getLoading = createSelector(
   getRegistrationState,
-  (state: RegistrationState) => state.loaded
+  (state: RegistrationState) => state.entity.loading
 );
+
 const getError = createSelector(
   getRegistrationState,
   (state: RegistrationState) => state.error
 );
 
-const getAllRegistration = createSelector(
+const getRegistrationSuccessfull = createSelector(
   getRegistrationState,
-  getLoaded,
-  (state: RegistrationState, isLoaded) => {
-    return isLoaded ? state.list : [];
-  }
-);
-const getSelectedId = createSelector(
-  getRegistrationState,
-  (state: RegistrationState) => state.selectedId
-);
-const getSelectedRegistration = createSelector(
-  getAllRegistration,
-  getSelectedId,
-  (registration, id) => {
-    const result = registration.find(it => it['id'] === id);
-    return result ? Object.assign({}, result) : undefined;
-  }
+  getLoading,
+  (state: RegistrationState) => state.entity.registrationSucceeded
 );
 
+
 export const registrationQuery = {
-  getLoaded,
+  getLoading,
   getError,
-  getAllRegistration,
-  getSelectedRegistration
+  getRegistrationSuccessfull
 };

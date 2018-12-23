@@ -37,7 +37,7 @@ describe('RegistrationEffects', () => {
   describe('loadRegistration$', () => {
     it('should work', () => {
       actions = hot('-a-|', { a: new RegisterAction({ email: '' }) });
-      expect(effects.loadRegistration$).toBeObservable(
+      expect(effects.register$).toBeObservable(
         hot('-a-|', { a: new RegistrationSuccessAction([]) })
       );
     });

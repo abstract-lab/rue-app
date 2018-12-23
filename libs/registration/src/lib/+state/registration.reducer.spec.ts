@@ -1,7 +1,7 @@
 import { RegisterAction } from './registration.actions';
 import {
   RegistrationState,
-  Entity,
+  RegistrationEntity,
   initialState,
   registrationReducer
 } from './registration.reducer';
@@ -11,9 +11,9 @@ describe('Registration Reducer', () => {
   let createRegistration;
 
   beforeEach(() => {
-    createRegistration = (id: string, name = ''): Entity => ({
-      id,
-      name: name || `name-${id}`
+    createRegistration = (id: string, name = ''): RegistrationEntity => ({
+      loading: false,
+      registrationSucceeded: false
     });
   });
 
@@ -28,11 +28,8 @@ describe('Registration Reducer', () => {
         initialState,
         action
       );
-      const selId: string = getRegistrationId(result.list[1]);
-
-      expect(result.loaded).toBe(true);
-      expect(result.list.length).toBe(2);
-      expect(selId).toBe('PRODUCT-zzz');
+      
+      expect(result.entity.registrationSucceeded).toBe(true);
     });
   });
 

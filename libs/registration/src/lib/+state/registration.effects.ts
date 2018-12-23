@@ -9,25 +9,28 @@ import {
   RegistrationFailAction,
   RegistrationActionTypes
 } from './registration.actions';
+import { RegistrationService } from '../services/registration.service';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class RegistrationEffects {
-  @Effect() loadRegistration$ = this.dataPersistence.fetch(
-    RegistrationActionTypes.Register,
-    {
+  @Effect() register$ = this.dataPersistence.fetch(RegistrationActionTypes.Register, {
       run: (action: RegisterAction, state: RegistrationPartialState) => {
-        // Your custom REST 'load' logic goes here. For now just return an empty list...
-        return new RegistrationSuccessAction([]);
+        return this.registrationService
+                  .signUp(action.payload.email)
+                  .pipe(
+                    map(registration => new RegistrationSuccessAction(registration))
+                  )
       },
 
       onError: (action: RegisterAction, error) => {
-        console.error('Error', error);
         return new RegistrationFailAction(error);
       }
     }
   );
 
   constructor(
+    private registrationService: RegistrationService,
     private actions$: Actions,
     private dataPersistence: DataPersistence<RegistrationPartialState>
   ) {}

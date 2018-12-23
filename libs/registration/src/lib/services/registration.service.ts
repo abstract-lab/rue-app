@@ -6,7 +6,7 @@ export class RegistrationService {
 
   constructor() { }
 
-  signUp() {
+  signUp(registrationEmailAddress: string) {
     return of({ emailSent: true });
   }
 }

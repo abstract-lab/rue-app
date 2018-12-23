@@ -5,22 +5,14 @@ import {
 
 export const REGISTRATION_FEATURE_KEY = 'registration';
 
-/**
- * Interface for the 'Registration' data used in
- *  - RegistrationState, and
- *  - registrationReducer
- *
- *  Note: replace if already defined in another module
- */
-
-/* tslint:disable:no-empty-interface */
-export interface Entity {}
+export interface RegistrationEntity {
+  registrationSucceeded?: boolean,
+  loading: boolean,
+}
 
 export interface RegistrationState {
-  list: Entity[]; // list of Registration; analogous to a sql normalized table
-  selectedId?: string | number; // which Registration record has been selected
-  loaded: boolean; // has the Registration list been loaded
-  error?: any; // last none error (if any)
+  readonly entity: RegistrationEntity;
+  error?: any;
 }
 
 export interface RegistrationPartialState {
@@ -28,21 +20,38 @@ export interface RegistrationPartialState {
 }
 
 export const initialState: RegistrationState = {
-  list: [],
-  loaded: false
+  entity: null,
+  error: ''
 };
 
-export function registrationReducer(
-  state: RegistrationState = initialState,
-  action: RegistrationAction
-): RegistrationState {
+export function registrationReducer(state: RegistrationState = initialState, action: RegistrationAction): RegistrationState {
   switch (action.type) {
+    case RegistrationActionTypes.Register: {
+      state = {
+        ...state,
+        entity: {
+          loading: true,
+        }
+      }
+      break;
+    }
+
     case RegistrationActionTypes.RegistrationSuccess: {
       state = {
         ...state,
-        list: action.payload,
-        loaded: true
+        entity: action.payload,
       };
+      break;
+    }
+
+    case RegistrationActionTypes.RegistrationFailed: {
+      state = {
+        ...state,
+        entity: {
+          loading: false,
+        },
+        error: action.payload,
+      }
       break;
     }
   }

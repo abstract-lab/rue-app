@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Entity } from './registration.reducer';
+import { RegistrationEntity } from './registration.reducer';
 
 export enum RegistrationActionTypes {
   Register = '[Registration] Register',

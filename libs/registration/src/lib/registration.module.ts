@@ -7,6 +7,7 @@ import { REGISTRATION_FEATURE_KEY, initialState as registrationInitialState, reg
 import { RegistrationEffects } from './+state/registration.effects';
 import { RegistrationComponent } from './containers/registration/registration.component';
 import { RegistrationService } from './services/registration.service';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { RegistrationService } from './services/registration.service';
 
     EffectsModule.forFeature([RegistrationEffects])
   ],
-  declarations: [RegistrationComponent],
+  declarations: [RegistrationComponent, RegistrationFormComponent],
   providers: [ RegistrationService ]
 })
 export class RegistrationModule {}
