@@ -37,7 +37,7 @@ export function registrationReducer(
   action: RegistrationAction
 ): RegistrationState {
   switch (action.type) {
-    case RegistrationActionTypes.RegistrationLoaded: {
+    case RegistrationActionTypes.RegistrationSuccess: {
       state = {
         ...state,
         list: action.payload,

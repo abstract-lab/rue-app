@@ -11,7 +11,7 @@ import { DataPersistence } from '@nrwl/nx';
 import { hot } from '@nrwl/nx/testing';
 
 import { RegistrationEffects } from './registration.effects';
-import { LoadRegistration, RegistrationLoaded } from './registration.actions';
+import { RegisterAction, RegistrationSuccessAction, RegistrationFailAction, RegistrationActionTypes } from './registration.actions';
 
 describe('RegistrationEffects', () => {
   let actions: Observable<any>;
@@ -36,9 +36,9 @@ describe('RegistrationEffects', () => {
 
   describe('loadRegistration$', () => {
     it('should work', () => {
-      actions = hot('-a-|', { a: new LoadRegistration() });
+      actions = hot('-a-|', { a: new RegisterAction({ email: '' }) });
       expect(effects.loadRegistration$).toBeObservable(
-        hot('-a-|', { a: new RegistrationLoaded([]) })
+        hot('-a-|', { a: new RegistrationSuccessAction([]) })
       );
     });
   });

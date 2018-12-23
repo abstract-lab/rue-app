@@ -2,32 +2,36 @@ import { Action } from '@ngrx/store';
 import { Entity } from './registration.reducer';
 
 export enum RegistrationActionTypes {
-  LoadRegistration = '[Registration] Load Registration',
-  RegistrationLoaded = '[Registration] Registration Loaded',
-  RegistrationLoadError = '[Registration] Registration Load Error'
+  Register = '[Registration] Register',
+  RegistrationSuccess = '[Registration] Registration Success',
+  RegistrationFailed = '[Registration] Registration Fail'
 }
 
-export class LoadRegistration implements Action {
-  readonly type = RegistrationActionTypes.LoadRegistration;
+export class RegisterAction implements Action {
+  readonly type = RegistrationActionTypes.Register;
+
+  constructor(public payload: { email: string }) {}
 }
 
-export class RegistrationLoadError implements Action {
-  readonly type = RegistrationActionTypes.RegistrationLoadError;
+export class RegistrationSuccessAction implements Action {
+  readonly type = RegistrationActionTypes.RegistrationSuccess;
+
   constructor(public payload: any) {}
 }
 
-export class RegistrationLoaded implements Action {
-  readonly type = RegistrationActionTypes.RegistrationLoaded;
-  constructor(public payload: Entity[]) {}
+export class RegistrationFailAction implements Action {
+  readonly type = RegistrationActionTypes.RegistrationFailed;
+
+  constructor(public payload: any) {}
 }
 
 export type RegistrationAction =
-  | LoadRegistration
-  | RegistrationLoaded
-  | RegistrationLoadError;
+  | RegisterAction
+  | RegistrationSuccessAction
+  | RegistrationFailAction;
 
 export const fromRegistrationActions = {
-  LoadRegistration,
-  RegistrationLoaded,
-  RegistrationLoadError
+  RegisterAction: RegisterAction,
+  RegistrationSuccessAction: RegistrationSuccessAction,
+  RegistrationFailAction: RegistrationFailAction,
 };

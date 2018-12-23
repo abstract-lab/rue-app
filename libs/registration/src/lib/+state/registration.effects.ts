@@ -4,25 +4,25 @@ import { DataPersistence } from '@nrwl/nx';
 
 import { RegistrationPartialState } from './registration.reducer';
 import {
-  LoadRegistration,
-  RegistrationLoaded,
-  RegistrationLoadError,
+  RegisterAction,
+  RegistrationSuccessAction,
+  RegistrationFailAction,
   RegistrationActionTypes
 } from './registration.actions';
 
 @Injectable()
 export class RegistrationEffects {
   @Effect() loadRegistration$ = this.dataPersistence.fetch(
-    RegistrationActionTypes.LoadRegistration,
+    RegistrationActionTypes.Register,
     {
-      run: (action: LoadRegistration, state: RegistrationPartialState) => {
+      run: (action: RegisterAction, state: RegistrationPartialState) => {
         // Your custom REST 'load' logic goes here. For now just return an empty list...
-        return new RegistrationLoaded([]);
+        return new RegistrationSuccessAction([]);
       },
 
-      onError: (action: LoadRegistration, error) => {
+      onError: (action: RegisterAction, error) => {
         console.error('Error', error);
-        return new RegistrationLoadError(error);
+        return new RegistrationFailAction(error);
       }
     }
   );
