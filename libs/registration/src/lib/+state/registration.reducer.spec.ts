@@ -1,4 +1,4 @@
-import { RegistrationLoaded } from './registration.actions';
+import { RegisterAction } from './registration.actions';
 import {
   RegistrationState,
   Entity,
@@ -19,11 +19,11 @@ describe('Registration Reducer', () => {
 
   describe('valid Registration actions ', () => {
     it('should return set the list of known Registration', () => {
-      const registrations = [
-        createRegistration('PRODUCT-AAA'),
-        createRegistration('PRODUCT-zzz')
-      ];
-      const action = new RegistrationLoaded(registrations);
+      const registrations = {
+        email: ''
+      };
+      
+      const action = new RegisterAction(registrations);
       const result: RegistrationState = registrationReducer(
         initialState,
         action
