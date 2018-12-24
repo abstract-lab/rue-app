@@ -1,12 +1,24 @@
-<form #registrationForm>
-    <input type="email" #registrationEmail>
-    <button (click)="register.emit(registrationEmail.value)"></button>
+<div class="card">
+    <form class="clrForm clr-form-compact" (ngSubmit)="onRegister(registrationForm)" #registrationForm="ngForm">
+        <div class="clr-form-control clr-row">
+            <label for="registrationEmail" class="clr-control-label clr-col-xs-12 clr-col-md-2">Email</label>
+            <div class="clr-input-container clr-col-xs-12 clr-col-md-10">
+                <div class="clr-input-wrapper">
+                    <input type="email" class="clr-input" id="registrationEmail" [(ngModel)]="entity.registrationEmail" name="registrationEmail" #registrationEmail="ngModel" required>
+                    <div *ngIf="registrationEmail.invalid && (registrationEmail.dirty || registrationEmail.touched)">
+                        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                        <div *ngIf="registrationEmail.errors.required">E-mail required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="loading || ! registrationForm.form.valid">Register
+            <span *ngIf="loading" class="spinner spinner-inline"></span>
+        </button>
 
-    <div *ngIf="errorMessage">
-        {{ errorMessage }}
-    </div>
-
-    <div *ngIf="loading">
-        LOADING ...
-    </div>
-</form>
+        <div *ngIf="errorMessage">
+            {{ errorMessage }}
+        </div>
+    </form>
+</div>

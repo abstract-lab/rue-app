@@ -1,5 +1,10 @@
-<rue-app-registration-form 
-    [errorMessage]="errorMessage$ | async"
-    [loading]="loading$ | async"
-    (register)="register($event)">
-</rue-app-registration-form>
+<div class="row">
+    <div class="col-md-6">
+        <rue-app-registration-form 
+            [entity]="model"
+            [errorMessage]="errorMessage$ | async"
+            [loading]="loading$ | async"
+            (register)="register($event)">
+        </rue-app-registration-form>
+    </div>
+</div>

@@ -49,6 +49,7 @@ export function registrationReducer(state: RegistrationState = initialState, act
       state = {
         ...state,
         entity: {
+          registrationSucceeded: false,
           loading: false,
         },
         error: action.payload,
