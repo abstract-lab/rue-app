@@ -1,24 +1,39 @@
-<div class="card">
-    <form class="clrForm clr-form-compact" (ngSubmit)="onRegister(registrationForm)" #registrationForm="ngForm">
-        <div class="clr-form-control clr-row">
-            <label for="registrationEmail" class="clr-control-label clr-col-xs-12 clr-col-md-2">Email</label>
-            <div class="clr-input-container clr-col-xs-12 clr-col-md-10">
-                <div class="clr-input-wrapper">
-                    <input type="email" class="clr-input" id="registrationEmail" [(ngModel)]="entity.registrationEmail" name="registrationEmail" #registrationEmail="ngModel" required>
-                    <div *ngIf="registrationEmail.invalid && (registrationEmail.dirty || registrationEmail.touched)">
-                        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-                        <div *ngIf="registrationEmail.errors.required">E-mail required</div>
+<div class="content-container">
+        <div class="content-area">
+            <div class="clr-row">
+                <div class="clr-col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Register new account
+                        </div>
+                        <form class="clrForm clr-form-compact" (ngSubmit)="onRegister(registrationForm)" #registrationForm="ngForm">
+                            <div class="card-block">
+                                <div class="clr-form-control clr-row">
+                                    <label for="registrationEmail" class="clr-control-label clr-col-xs-12 clr-col-md-2">Email</label>
+                                    <div class="clr-input-container clr-col-xs-12 clr-col-md-10">
+                                        <div class="clr-input-wrapper">
+                                            <input type="email" class="clr-input" id="registrationEmail" [(ngModel)]="entity.registrationEmail" name="registrationEmail" #registrationEmail="ngModel" required>
+                                            <div *ngIf="registrationEmail.invalid && (registrationEmail.dirty || registrationEmail.touched)">
+                                                <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                                                <div *ngIf="registrationEmail.errors.required">E-mail required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary" [disabled]="loading || ! registrationForm.form.valid">Register
+                                    <span *ngIf="loading" class="spinner spinner-inline"></span>
+                                </button>
+                        
+                                <div *ngIf="errorMessage">
+                                    {{ errorMessage }}
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <button type="submit" class="btn btn-primary" [disabled]="loading || ! registrationForm.form.valid">Register
-            <span *ngIf="loading" class="spinner spinner-inline"></span>
-        </button>
-
-        <div *ngIf="errorMessage">
-            {{ errorMessage }}
-        </div>
-    </form>
-</div>
+    </div>
