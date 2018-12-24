@@ -1,11 +1,11 @@
-$color-1: #C98686;
-$color-2: #9D6ABB;
-$color-3: #F2B880;
-$color-4: #FFF4EC;
-$color-5: #E7CFBC;
+$color-1: #131122;
+$color-2: #351B27;
+$color-3: #9D6655;
+$color-4: #F9BC89;
+$color-5: #E7CDB9;
 
 $color-card-header: $color-3;
-$color-card-footer: $color-4;
+$color-card-footer: $color-5;
 
 .card-header {
     background-color: $color-card-header;
@@ -17,6 +17,6 @@ $color-card-footer: $color-4;
 
 .error-message {
     font-weight: bold;
-    color: $color-1;
+    color: $color-2;
     font-size: 12px;
 }
