@@ -1,0 +1,6 @@
+.error-message {
+    font-weight: bold;
+    font-style: italic;
+    color: red;
+    size: 10px;
+}
