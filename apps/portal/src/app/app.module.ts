@@ -12,24 +12,27 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { RegistrationModule } from '@rue-app/registration';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, WelcomeComponent],
   imports: [
     BrowserModule,
     NxModule.forRoot(),
     RouterModule.forRoot([
-      { path: 'registration', loadChildren: '@rue-app/registration#RegistrationModule' },
-      { path: '', redirectTo: 'registration', pathMatch: 'full' },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     ], { initialNavigation: 'enabled' }),
     StoreModule.forRoot({},{ metaReducers : !environment.production ? [storeFreeze] : [] }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule,
     ClarityModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RegistrationModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

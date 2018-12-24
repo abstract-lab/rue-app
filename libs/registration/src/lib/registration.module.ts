@@ -25,6 +25,7 @@ import { ClarityModule } from '@clr/angular';
     ClarityModule,
   ],
   declarations: [RegistrationComponent, RegistrationFormComponent],
-  providers: [ RegistrationService ]
+  providers: [ RegistrationService ],
+  exports: [ RegistrationComponent ],
 })
 export class RegistrationModule {}
