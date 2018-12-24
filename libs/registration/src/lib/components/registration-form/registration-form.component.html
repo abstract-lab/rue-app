@@ -27,10 +27,7 @@
                                 <button type="submit" class="btn btn-primary" [disabled]="loading || ! registrationForm.form.valid">Register
                                     <span *ngIf="loading" class="spinner spinner-inline"></span>
                                 </button>
-
-                                <div *ngIf="errorMessage">
-                                    {{ errorMessage }}
-                                </div>
+                                <span class="error-message" *ngIf="errorMessage">{{ errorMessage }}</span>
                             </div>
                         </form>
                     </div>
