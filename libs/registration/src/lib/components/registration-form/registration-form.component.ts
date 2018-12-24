@@ -4,7 +4,7 @@ import { RegistrationModel } from '../../models/registration.model';
 @Component({
   selector: 'rue-app-registration-form',
   templateUrl: './registration-form.component.html',
-  styleUrls: ['./registration-form.component.css'],
+  styleUrls: ['./registration-form.component.scss'],
 })
 export class RegistrationFormComponent {
   @Input() entity: RegistrationModel;

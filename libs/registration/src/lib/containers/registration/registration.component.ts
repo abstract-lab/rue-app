@@ -9,8 +9,7 @@ import { RegistrationModel } from '../../models/registration.model';
 
 @Component({
   selector: 'rue-app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css'],
+  templateUrl: './registration.component.html'
 })
 export class RegistrationComponent implements OnInit {
   model: RegistrationModel;

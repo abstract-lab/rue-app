@@ -1,0 +1,22 @@
+$color-1: #C98686;
+$color-2: #9D6ABB;
+$color-3: #F2B880;
+$color-4: #FFF4EC;
+$color-5: #E7CFBC;
+
+$color-card-header: $color-3;
+$color-card-footer: $color-4;
+
+.card-header {
+    background-color: $color-card-header;
+}
+
+.card-footer {
+    background-color: $color-card-footer;
+}
+
+.error-message {
+    font-weight: bold;
+    color: $color-1;
+    font-size: 12px;
+}
