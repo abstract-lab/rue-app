@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
@@ -16,10 +15,6 @@ import { ClarityModule } from '@clr/angular';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild([
-      { path: '', pathMatch: 'full', component: RegistrationComponent }
-    ]),
-
     StoreModule.forFeature(REGISTRATION_FEATURE_KEY, registrationReducer, { initialState: registrationInitialState }),
     EffectsModule.forFeature([RegistrationEffects]),
     ClarityModule,
