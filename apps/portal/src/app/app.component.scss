@@ -4,8 +4,12 @@ $color-3: #9D6655;
 $color-4: #F9BC89;
 $color-5: #E7CDB9;
 
-$color-card-header: $color-3;
+$color-card-header: $color-5;
 $color-card-footer: $color-5;
+
+.main-container {
+    background-color: $color-5;
+}
 
 .card-header {
     background-color: $color-card-header;
