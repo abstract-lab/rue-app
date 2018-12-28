@@ -37,17 +37,18 @@
     "@angular/platform-browser-dynamic": "^7.0.0",
     "@angular/router": "^7.0.0",
     "@clr/angular": "^1.0.3-patch",
+    "@clr/icons": "^1.0.3-patch",
+    "@clr/ui": "^1.0.3-patch",
     "@ngrx/effects": "6.1.0",
     "@ngrx/entity": "6.1.0",
     "@ngrx/router-store": "6.1.0",
     "@ngrx/store": "6.1.0",
     "@nrwl/nx": "7.1.1",
+    "@webcomponents/custom-elements": "^1.0.0",
     "core-js": "^2.5.4",
+    "jscs": "^3.0.7",
     "rxjs": "~6.3.3",
-    "zone.js": "^0.8.26",
-    "@clr/ui": "^1.0.3-patch",
-    "@clr/icons": "^1.0.3-patch",
-    "@webcomponents/custom-elements": "^1.0.0"
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular/cli": "7.0.1",
